@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <!--Необходимые мета теги -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--Bootstrap стили CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title>Users Page</title>
+</head>
+<body>
+<h3>Users Page</h3>
+<hr>
+<form  th:object="${userInfo}">
+
+    <label for="name">Name </label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <br><br>
+    <label for="name">Surname </label>
+    <input type="text" th:field="*{surname}" id="surname"/>
+    <br><br>
+    <label for="name">PhoneNumber </label>
+    <input type="text" th:field="*{phoneNumber}" id="phoneNumber"/>
+    <br><br>
+    <label for="name">Email </label>
+    <input type="text" th:field="*{email}" id="email"/>
+    <br><br>
+
+</form>
+<br>
+<form style="color:green; font-family: fantasy" th:action="@{/logout}" th:method="POST">
+    <input type="submit" value="Logout!"/>
+</form>
+<br>
+<br>
+<a class="card-link" href="/admin">Info for Admin</a>
+
+
+</body>
+</html>
