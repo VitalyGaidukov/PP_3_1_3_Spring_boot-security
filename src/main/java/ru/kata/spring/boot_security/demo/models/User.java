@@ -41,8 +41,6 @@ public class User implements UserDetails {
     @Column(name = "password")
     private String password;
 
-
-
     @ManyToMany(cascade=CascadeType.MERGE)
     @JoinTable(
             name="user_role",
@@ -113,12 +111,14 @@ public class User implements UserDetails {
 
     @Override
     public String toString() {
-        return "User {" + "\n"+
-                " id = " + id + "\n"+
-                ", name = '" + name + '\'' + "\n"+
-                ", surname = '" + surname + '\'' + "\n"+
-                ", phoneNumber = '" + phoneNumber + '\'' + "\n"+
-                ", email = '" + email + '\'' + "\n"+
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", roles=" + roles +
                 '}';
     }
 

@@ -3,11 +3,12 @@ package ru.kata.spring.boot_security.demo.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import ru.kata.spring.boot_security.demo.models.Role;
 import ru.kata.spring.boot_security.demo.models.User;
 import ru.kata.spring.boot_security.demo.service.RoleService;
 import ru.kata.spring.boot_security.demo.service.UserService;
 
-import javax.validation.constraints.NotNull;
+
 import java.util.List;
 
 @Controller
@@ -32,6 +33,8 @@ public class AdminController {
     @GetMapping("/addNewUser")
     public String addNewUser(Model model){
         User user = new User();
+        List<Role> roles = roleService.listRoles();
+        model.addAttribute("allRoles", roles);
         model.addAttribute("user", user);
         return "admin/user_info";
     }
@@ -55,10 +58,9 @@ public class AdminController {
         return "admin/get";
     }
 
-    @PatchMapping("{id}")
-    public String updateUser (@ModelAttribute("user") User user,
-                              @RequestParam @NotNull(message = "Роль должна быть выбрана") String role){
-        userService.updateUser(user, role);
+    @PatchMapping("/{id}")
+    public String updateUser (@ModelAttribute("user") User user, @PathVariable("id") int id) {
+        userService.updateUser(user,id);
         return "redirect:/admin";
     }
 }

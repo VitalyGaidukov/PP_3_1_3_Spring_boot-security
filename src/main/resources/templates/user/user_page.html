@@ -33,6 +33,10 @@
     <label for="name">Email </label>
     <input type="text" th:field="*{email}" id="email"/>
     <br><br>
+    <label for="name">Role </label>
+    <span th:each= "roles:${userInfo.getRoles()}"
+          th:text="${roles.getName().replace('ROLE_','')}+'  '"></span>
+    <br><br>
 
 </form>
 <br>

@@ -36,15 +36,23 @@
   <input type="text" th:field="*{email}" id="email"/>
   <br><br>
   <label  for="password">Password</label>
-    <input type="text" th:field="*{password}" id="password">
+  <input type="text" th:field="*{password}" id="password">
 
   <br><br>
   <label>Roles:
-    <select class="field" multiple name="role" id="role">
-      <option th:each="role : ${roleList}" th:value="${role.getId()}" th:text="${role.getName()}"
-              th:selected="${user.getRoles().contains(role)}"></option>
-    </select>
+    <input type="checkbox" name="roles"
+           th:each="role : ${roleList}"
+           th:text="${role.name+' '}"
+           th:value="${role.id}"
+           th:field="*{roles}"
+    />
   </label>
+<!--  <label>Roles:-->
+<!--    <select class="field" multiple name="role" id="role">-->
+<!--      <option th:each="role : ${roleList}" th:value="${role.getId()}" th:text="${role.getName()}"-->
+<!--              th:selected="${user.getRoles().contains(role)}"></option>-->
+<!--    </select>-->
+<!--  </label>-->
   <br><br>
   <input style="color:green; font-family: fantasy" type="submit" value="Update"/>
 

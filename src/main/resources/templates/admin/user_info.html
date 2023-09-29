@@ -32,37 +32,51 @@
 <h3>Users Info ADD</h3>
 <hr>
 <div>
-<form th:method="POST" th:action="@{/saveUser}" th:object="${user}">
+  <form th:method="POST" th:action="@{/saveUser}" th:object="${user}">
 
-  <label for="name" class="sr-only">Name </label>
-  <input type="text" th:field="*{name}" id="name" class="form-control" placeholder="Name" required/>
-  <br><br>
-  <label for="name" class="sr-only">Surname </label>
-  <input type="text" th:field="*{surname}" id="surname" class="form-control" placeholder="Surname" required/>
-  <br><br>
-  <label for="name" class="sr-only">PhoneNumber </label>
-  <input type="text" th:field="*{phoneNumber}" id="phoneNumber" class="form-control" placeholder="PhoneNumber" required/>
-  <br><br>
-  <label for="name" class="sr-only">Email </label>
-  <input type="text" th:field="*{email}" id="email" class="form-control" placeholder="Email" required/>
-  <br><br>
-  <br><br>
-  <label  for="password" class="sr-only">Password</label>
-  <input type="text" th:field="*{password}" id="password" class="form-control" placeholder="Password" required>
+    <label for="name" class="sr-only">Name </label>
+    <input type="text" th:field="*{name}" id="name" class="form-control" placeholder="Name" required/>
+    <br><br>
+    <label for="name" class="sr-only">Surname </label>
+    <input type="text" th:field="*{surname}" id="surname" class="form-control" placeholder="Surname" required/>
+    <br><br>
+    <label for="name" class="sr-only">PhoneNumber </label>
+    <input type="text" th:field="*{phoneNumber}" id="phoneNumber" class="form-control" placeholder="PhoneNumber" required/>
+    <br><br>
+    <label for="name" class="sr-only">Email </label>
+    <input type="text" th:field="*{email}" id="email" class="form-control" placeholder="Email" required/>
+    <br><br>
+    <br><br>
+    <label  for="password" class="sr-only">Password</label>
+    <input type="text" th:field="*{password}" id="password" class="form-control" placeholder="Password" required>
 
-<!--  <br><br>-->
-<!--  <label>Roles:-->
-<!--    <select class="field" multiple name="role" id="role">-->
-<!--      <option th:each="role : ${roleList}" th:value="${role.getId()}" th:text="${role.getName()}"-->
-<!--              th:selected="${user.getRoles().contains(role)}"></option>-->
-<!--    </select>-->
-<!--  </label>-->
-<!--  <br><br>-->
+    <input style="color:green; font-family: fantasy" type="submit" value="OK"/>
+    <br>
+    <form th:action="@{/saveUser}" th:object="${user}" method="post">
+      <p>
+        <label>Roles:
+          <input type="checkbox" name="roles"
+                 th:each="role : ${allRoles}"
+                 th:text="${role.name+' '}"
+                 th:value="${role.id}"
+                 th:field="*{roles}"
+          />
+        </label>
+      </p>
+    </form>
+    <!--  <br><br>-->
+    <!--  <label>Roles:-->
+    <!--    <select class="field" multiple name="role" id="role">-->
+    <!--      <option th:each="role : ${roleList}" th:value="${role.getId()}" th:text="${role.getName()}"-->
+    <!--              th:selected="${user.getRoles().contains(role)}"></option>-->
+    <!--    </select>-->
+    <!--  </label>-->
+    <!--  <br><br>-->
 
-  <input style="color:green; font-family: fantasy" type="submit" value="OK"/>
-  <br><br>
+<!--    <input style="color:green; font-family: fantasy" type="submit" value="OK"/>-->
+<!--    <br><br>-->
 
-</form>
+  </form>
   <form style="color:green; font-family: fantasy" th:action="@{/logout}" th:method="POST">
     <input type="submit" value="Logout!"/>
   </form>

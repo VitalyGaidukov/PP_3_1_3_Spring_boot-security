@@ -24,7 +24,6 @@ public class RegistrationController {
 
     public RegistrationController(UserService userService, RoleService roleService) {
         this.userService = userService;
-
         this.roleService = roleService;
     }
     @GetMapping("/registration")

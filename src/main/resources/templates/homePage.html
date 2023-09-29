@@ -13,39 +13,39 @@
 </head>
 <body>
 <div class="container">
- <div class="row">
-     <div class="card">
-         <div class="card-body" style="margin-top: 45px">
-             <h5 class="card-title">Login with Username and Password</h5>
-             <p class="card-text"></p>
+    <div class="row">
+        <div class="card">
+            <div class="card-body" style="margin-top: 45px">
+                <h5 class="card-title">Login with Username and Password</h5>
+                <p class="card-text"></p>
 
-             <div th:if="${param.error}" style="color: red">
-                 <div class="alert alert-danger" role="alert">Invalid Username or Password</div>
-             </div>
-             <div style="color: red" th:if="${#fields.hasErrors('logout')}" th:errors="*{logout}">
-                 <div class="alert alert-info" role="alert">You've been logged out successfully</div>
-             </div>
+                <div th:if="${param.error}" style="color: red">
+                    <div class="alert alert-danger" role="alert">Invalid Username or Password</div>
+                </div>
+                <div style="color: red" th:if="${#fields.hasErrors('logout')}" th:errors="*{logout}">
+                    <div class="alert alert-info" role="alert">You've been logged out successfully</div>
+                </div>
 
-             <form name="f" method="post" action="/login">
-                 <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
-                 <div class="form-group">
-                     <label for="username">Username</label>
-                     <input type="text" class="form-control" id="username" placeholder="Username" name="username"/>
-                 </div>
-                 <div class="form-group">
-                     <label for="password">Password</label>
-                     <input type="password" class="form-control" id="password" placeholder="Password" name="password"/>
-                 </div>
-                 <input type="submit" class="card-link" value="Log in!    "/>
-                 <a class="card-link" href="/registration">Registration</a>
+                <form name="f" method="post" action="/login">
+                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id="username" placeholder="Username" name="username"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Password" name="password"/>
+                    </div>
+                    <input type="submit" class="card-link" value="Log in!    "/>
+                    <a class="card-link" href="/registration">Registration</a>
 
-             </form>
-         </div>
-     </div>
+                </form>
+            </div>
+        </div>
 
-     </div>
+    </div>
 
- </div>
+</div>
 
 </div>
 
